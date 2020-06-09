@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}grupavenedi.pl{% endblock title %}
+
+{% block stylesheets %}
+  <link rel = 'stylesheet' href = 'css/who_we_are/index.css'>
+{% endblock stylesheets %}
+
+{% block text_content %}
+<div class='m-sm-2 border-custom-2'>
+  <h2 class='m-sm-1 text-center'>Venedi - Pomorska Grupa Eksploracyjna
+  </h2>
+</div>
+<div class='m-sm-4 border-custom-1 text-center'>
+  <p class='m-sm-1'>
+    Jesteśmy grupą poszukiwaczy z Pomorza, którzy zajmują się poszukiwaniem skarbów.
+  </p>
+  <p class='m-sm-1'>
+    Zapraszamy do obejrzenia naszej fotogalerii i obejrzenia video.
+  </p>
+</div>
+<div>
+  <div class='m-sm-5 mt-custom-lg'>
+    <h3 class='border-custom-2 p-sm-1 text-center'>Galeria zdjęć grupy Venedi
+    </h3>
+  </div>
+  <div class='m-sm-2 text-center d-flex justify-content-center align-content-center'>
+    <div class='gallery'>
+      <img src='images/wwa_photos/fortress_arch.webp' alt='Zamek' class='img_venedi'>
+      <p class='p-sm-2'>Jedno z wejść do zamku
+      </p>
+    </div>
+    <div class='gallery'>
+      <img src='images/wwa_photos/rome_arch.webp' alt='Rzymska budowla' class='img_venedi'>
+      <p class='p-sm-2'>Rzymska budowla
+      </p>
+    </div>
+    <div class='gallery'>
+      <img src='images/wwa_photos/sculpture.webp' alt='Rzeźba' class='img_venedi'>
+      <p class='p-sm-2'>Rzeźba
+      </p>
+    </div>
+    <div class='gallery'>
+      <img src='images/wwa_photos/stonehenge.webp' alt='Stonehenge' class='img_venedi'>
+      <p class='p-sm-2'>Stonehenge
+      </p>
+    </div>
+    <div class='gallery'>
+      <img src='images/wwa_photos/venedi_and_gryf.webp' class='img_venedi'>
+      <p class='p-sm-2'>Venedi i Gryf
+      </p>
+    </div>
+  </div>
+</div>
+<div id='myModal' class='modal'>
+  <span class='close'>&times;</span>
+  <img class='modal-content' id='img01'>
+  <div id='caption'></div>
+</div>
+<div class='d-flex flex-column'>
+  <div class='m-sm-5'>
+    <h3 class='border-custom-2 p-sm-1 text-center'>Film promocyjny
+    </h3>
+  </div>
+  <div class='m-auto mb-sm-5'>
+    <video class='videos' controls>
+      <source src='videos/Falls9.mp4' type='video/mp4'></source>
+    </video>
+  </div>
+</div>
+{% endblock text_content %}
+
+{% block javascripts %}
+  <script src = 'js/who_we_are/my_jquery_wwa.js'></script>
+{% endblock javascripts %}

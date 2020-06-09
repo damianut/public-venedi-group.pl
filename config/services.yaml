@@ -1,0 +1,46 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+    app.video.not: "Nie wysłano filmu. Film nie został pobrany na stronę."
+    app.news.saved: "Zapisano news!"
+    app.album.saved: "Zapisano album."
+    app.video.saved: "Zapisano video!"
+    app.photo.404: "Nie wysłano żadnego zdjęcia. Album nie został utworzony."
+    app.server.err: "Błąd serwera. Skontaktuj się z adminem i wyślij mu dane, które chciałeś umieścić na stronie."
+    app.pwd.incorrect: "Nieprawidłowe hasło."
+    app.file.format.bad: "Zły format pliku."
+    app.file.num.bad: "Zła ilość plików."
+    app.file.overload: "Rozmiar plików przekroczył limit 250MB."
+    app.file.mem: "Brak miejsca na zapis nowych plików. Wpisz TAK w polu 'Nadpisać?:', aby usunąć najstarsze pliki i wysłać nowe."
+    
+    #Files uploading:
+    app.upl.dir: '%kernel.project_dir%/public/upload'
+    app.img.dir: '%app.upl.dir%/photos'
+    app.video.dir: '%app.upl.dir%/videos'
+    app.upl.fail: 'Nie udało się wysłać pliku'
+    
+    #Tests
+    app.task: "Task has been added."        
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+    # makes classes in src/ available to be used as services
+    # this creates a service per class whose id is the fully-qualified class name
+    App\:
+        resource: '../src/*'
+        exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
+
+    # controllers are imported separately to make sure services can be injected
+    # as action arguments even if you don't extend any base controller class
+    App\Controller\:
+        resource: '../src/Controller'
+        tags: ['controller.service_arguments']
+
+    # add more service definitions when explicit configuration is needed
+    # please note that last definitions always *replace* previous ones

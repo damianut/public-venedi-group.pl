@@ -1,0 +1,85 @@
+{% extends "base.html.twig" %}
+
+{% block title %}grupavenedi.pl{% endblock title %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="css/news/index.css">
+{% endblock stylesheets %}
+
+{% block text_content %}
+<!DOCTYPE html>
+<html lang="pl-PL">
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <div id="root">
+      <div class="m-sm-2 border-custom-2">
+        <h2 class="m-sm-1 text-center">Witamy na stronie grupy Venedi!</h2>
+      </div>
+      <div class="m-sm-3 border-custom-2">
+        <h4 class="m-sm-1 text-center">Nowości:</h4>
+      </div>
+      <div class="m-sm-3" id="accordion">
+      {% for single_news in news %}
+        <div class="card">
+            <div class="card-header card-header-custom">
+                <a class="card-link non-stretched-link font-custom" data-toggle="collapse">
+                    <h5 class="font-custom-bd text-center">
+                    <!-- tytuł -->
+                    {{ single_news.title }}
+                    </h5>
+                </a>
+            </div>
+            <div class="collapse" data-parent="#accordion">
+                <div class="card-body font-custom">
+                    <div class="m-sm-2 d-flex justify-content-center">
+                        <img class="card-img" src="{{ asset(single_news.photosAlbum.photos|first.dir ?? '') }}">
+                        <!-- *powyżej* zdjęcie tytułowe-->
+                    </div>
+                    <div class="card-text font-custom-lg text-center">
+                    <!-- treść artykułu -->
+                    {{ single_news.newsContent }}
+                    </div>
+                </div>
+                <div class="album">
+                <!-- Tutaj wstawiać kolejne <img>s -->
+                {% for photo in single_news.photosAlbum.photos %}
+                  <img class="myImg" src="{{ asset(photo.dir) }}">
+                {% endfor %}
+                </div>
+                <div class="film d-flex flex-wrap justify-content-center">
+                    <div class="film-title-container">
+                    <!-- tytuł film(u/ów) -->
+                    {{ single_news.videosAlbum.title}}
+                    </div>
+                    <div class="film-container">
+                    <!-- <source>s z film(ami) -->
+                    {% for video in single_news.videosAlbum.videos %}
+                        <video controls="">
+                            <source src="{{ asset(video.dir) }}" type="video/mp4"></source>
+                        </video>
+                    {% endfor %}
+                    </div>
+        		</div>
+            </div>
+        </div>
+      {% endfor %}
+      </div>
+      <div id="myModal" class="modal">
+        <span class="close">×</span>
+        <img class="modal-content" id="img01">
+        <div id="caption">
+        </div>
+        <a class="prev">❮</a>
+        <a class="next">❯</a>
+      </div>
+    </div>
+  </body>
+</html>
+{% endblock text_content %}
+
+{% block javascripts %}
+<script src="js/news/my_jquery_news.js"></script>
+{% endblock javascripts %}
+

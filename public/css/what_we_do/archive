@@ -1,0 +1,39 @@
+/*===================================[ CSS for (what_we_do, partnership, contact) ]===================================*/
+
+/**
+ *  1) Tytuł tekstu
+ */
+
+div.div_titles {
+    padding: 0 20px; 
+}
+
+.titles {
+    text-align: center;
+    border: 2px solid black;
+    padding: 5px;
+    margin: 7px 0 0 0;
+}
+
+
+/**
+ *  2) Tekst
+ */
+
+div.content_div {
+    padding: 0 30px;
+}
+
+pre {
+    font: 15px Arial;
+}
+
+li {
+    line-height: 0.8;
+}
+
+p.paragraph {
+    text-indent: 30px;
+    word-wrap: break-word;
+    line-height: 1.8;
+}

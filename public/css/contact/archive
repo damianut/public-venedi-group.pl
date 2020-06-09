@@ -1,0 +1,21 @@
+/*div.chessboard {
+    display: flex;
+    justify-content: center;
+}
+
+div.snakeOnChessboard {
+    display: flex;
+    flex-direction: column;
+    padding: auto;
+}
+
+div.rowChessboard {
+    display: flex;
+    flex-direction: row;
+}
+
+div.cellChessboard {
+    border: 1px solid black;
+    width: 40px;
+    height: 40px;
+}*/

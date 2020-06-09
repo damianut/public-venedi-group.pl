@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang='pl-PL'>
+  <head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content='initial-scale=1.0'>
+    <meta name='author' content='Damian Orzeszek'>
+    <meta name='description' content='Grupa Venedi - poszukiwacze skarbów i archeolodzy Pomorza Zachodniego'>
+    <meta name='keywords' content='poszukiwacze skarbów, archeologia, Pomorze Zachodnie, Venedi, historia'>
+    <title>{% block title %}{% endblock title %}</title>
+    <link rel="shortcut icon" href="images/buttons_and_logo/logo_venedi.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src='js/jquery_index.js'></script>
+    {% block stylesheets %}
+    {% endblock stylesheets %}
+  </head>
+  <body>
+    <div class="main_and_aside">
+      <div id="buttons_container">
+        <a href="{{ path('news') }}">
+          <img src="{{ asset('images/buttons_and_logo/logo_venedi.png') }}" alt="Logo Grupy Venedi" id="logo">
+        </a>
+        <a href="{{ path('who_we_are') }}">
+          <img src="{{ asset('images/buttons_and_logo/button_kimjestesmy.png') }}" alt="kimjestesmy" id = 'who_we_are' class="buttons">
+        </a>
+        <a href="{{ path('what_we_do') }}">
+          <img src="{{ asset('images/buttons_and_logo/button_corobimy.png') }}" alt="corobimy" id = 'what_we_do' class="buttons">
+        </a>
+        <a href="{{ path('news') }}">
+          <img src="{{ asset('images/buttons_and_logo/button_aktualnosci.png') }}" alt="aktualnosci" class="buttons">
+        </a>
+        <a href="{{ path('photosAlbum') }}">
+          <img src="{{ asset('images/buttons_and_logo/button_zdjecia.png') }}" alt="zdjecia" id = 'photos' class="buttons">
+        </a>
+        <a href="{{ path('videosAlbum') }}">
+          <img src="{{ asset('images/buttons_and_logo/button_filmy.png') }}" alt="filmy" id = 'films' class="buttons">
+        </a>
+        <a href="{{ path('partnership') }}">
+          <img src="{{ asset('images/buttons_and_logo/button_wspolpraca.png') }}" alt="wspolpraca" id = 'partnership' class="buttons">
+        </a>
+        <a href="{{ path('contact') }}">
+          <img src="{{ asset('images/buttons_and_logo/button_kontakt.png') }}" alt="kontakt" id = 'contact' class="buttons">
+        </a>
+        <a href="https://www.google.com" target="_blank">
+          <img src="{{ asset('images/buttons_and_logo/facebook_icon.png') }}" alt="Facebook" id="fb">
+        </a>
+        <a href="https://www.google.com" target="_blank">
+          <img src="{{ asset('images/buttons_and_logo/me.png') }}" alt="reklama" id="me" class="buttons">
+        </a>
+      </div>
+      <div id="text_content">
+        {% block text_content %}
+        {% endblock text_content %}
+      </div>
+    </div>
+    {% block javascripts %}
+    {% endblock javascripts %}
+  </body>
+</html>

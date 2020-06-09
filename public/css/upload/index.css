@@ -1,0 +1,46 @@
+/**
+ * 1) CUSTOM CLASS:
+ */
+
+.font-custom-lg {
+    font-size: 20px;
+}
+
+.font-custom {
+    font-size: 14px;
+}
+
+.font-custom-sm {
+    font-size: 12px;
+}
+
+.bg-custom {
+    background-color: #d8dadf;
+}
+
+
+/**
+ *  2) TITLE&TIME:
+ */
+ 
+/*#title_div {
+    border: 2px solid blue;
+}
+
+#timer_div {
+    border: 2px solid black;
+    padding: 10px;
+}
+*/
+
+/**
+ *  3) FORMS:
+ */
+
+#photos_album_form {
+    display: none;
+}
+
+#videos_album_form {
+    display: none;
+}

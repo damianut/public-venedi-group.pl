@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang='pl-PL'>
+  <head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content='initial-scale=1.0'>
+    <meta name='author' content='Damian Orzeszek'>
+    <meta name='description' content='Grupa Venedi - poszukiwacze skarbów i archeolodzy Pomorza Zachodniego'>
+    <meta name='keywords' content='poszukiwacze skarbów, archeologia, Pomorze Zachodnie, Venedi, historia'>
+    <title>Formularz aktualizacji strony venedi-group.pl</title>
+    <link rel="shortcut icon" href="images/buttons_and_logo/logo_venedi.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel='stylesheet' href='css/upload/index.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src='js/upload/index.js'></script>
+  </head>
+  <body>
+	<div id="text_content">
+      <div class='row no-gutters'>
+        <div class='col card border border-secondary' id='title_div'>
+          <div class='card-body bg-custom'>
+            <p class='card-text text-center font-custom-lg font-weight-bold'>Formularz do przesyłania danych.</p>
+          </div>
+        </div>
+      </div>
+      <div class='row no-gutters border border-secondary rounded bg-light' id='select_subpage'>
+        <div class='col-sm-9 p-sm-3 border-right border-secondary'>
+          <label for='subpages' class='font-custom'>
+            <p class="mb-sm-0">Aby dodać nowy artykuł, album ze zdjęciami bądź film wybierz jedną z trzech opcji w polu obok.</p>
+            <p class="mb-sm-0">Następnie wprowadź dane do odpowiednich pól.</p>
+            <p class="mb-sm-0">News, album zdjęć lub filmów może zawierać maksymalnie 1GB danych.</p>
+            <p class="mb-sm-0">Jednorazowo można wysłać maksymalnie 22 zdjęć i filmów.</p>
+            <p class="mb-sm-0">Jeśli wyślesz więcej niż 22 pliki, to zostanie pobranych na serwer tylko 22 pierwszych plików</p>
+            <p class="mb-sm-0"><b>Po kliknięciu przycisku "Wyślij" wpisz podany przeze mnie login i hasło, i wciśnij "Zaloguj się".</b></p>
+            <p class="mb-sm-0">Potem na dole strony pojawi się odpowiedź ze strony serwera.</p>
+          </label>
+        </div>
+        <div class='col-sm-3 border-left border-secondary'>
+          <div class='d-flex h-100 w-100 justify-content-center align-items-center'>
+            <select id='subpages' name='subpages' class='font-custom'>
+              <option value='news'>Aktualności</option>
+              <option value='photos'>Zdjęcia</option>
+              <option value='videos'>Filmy</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div id="news_form">
+        {{ form_start(formNews) }}
+          {{ form_row(formNews.title) }}
+          {{ form_row(formNews.news_content) }}
+          <h3>Album zdjęć</h3>
+          <ul class="photosAlbum album1" data-prototype="{{ form_widget(formNews.photosAlbum.photos.vars.prototype)|e('html_attr')}}">
+            {% for photo in formNews.photosAlbum.photos %}
+            <li>{{ form_row(photo.dir) }}</li>
+            {% endfor %}
+          </ul>
+          <h3>Album filmów</h3>
+          <ul class="videosAlbum album2" data-prototype="{{ form_widget(formNews.videosAlbum.videos.vars.prototype)|e('html_attr')}}">
+            {% for video in formNews.videosAlbum.videos %}
+            <li>{{ form_row(video.dir) }}</li>
+            {% endfor %}
+          </ul>
+          {{ form_row(formNews.password) }}
+          {{ form_row(formNews.submit) }}
+        {{ form_end(formNews, {'render_rest': false}) }}
+      </div>
+      <div id="photos_album_form">
+        {{ form_start(formPhotosAlbum) }}
+          {{ form_row(formPhotosAlbum.title) }}
+          <h3>Zdjęcia</h3>
+          <ul class="photosAlbum album3" data-prototype="{{ form_widget(formPhotosAlbum.photos.vars.prototype)|e('html_attr')}}">
+            {% for photo in formPhotosAlbum.photos %}
+            <li>{{ form_row(photo.dir) }}</li>
+            {% endfor %}
+          </ul>
+          {{ form_row(formPhotosAlbum.password) }}
+          {{ form_row(formPhotosAlbum.submit) }}
+        {{ form_end(formPhotosAlbum) }}
+      </div>
+      <div id="videos_album_form">
+        {{ form_start(formVideosAlbum) }}
+          {{ form_row(formVideosAlbum.title) }}
+          <h3>Filmy</h3>
+          <ul class="videosAlbum album4" data-prototype="{{ form_widget(formVideosAlbum.videos.vars.prototype)|e('html_attr')}}">
+            {% for video in formVideosAlbum.videos %}
+            <li>{{ form_row(video.dir) }}</li>
+            {% endfor %}
+          </ul>
+          {{ form_row(formVideosAlbum.password) }}
+          {{ form_row(formVideosAlbum.submit) }}
+        {{ form_end(formVideosAlbum) }}
+      </div>
+    </div>
+    <div class='card bg-light font-custom'>
+        <h3 class="card-header">Odpowiedź z serwera:</h3>
+        <div class="card-body">
+            {% for label, messages in app.flashes %}
+                {% for message in messages %}
+                <div class="flash-{{ label }} card-text">
+                    <p>{{ message|nl2br }}</p>
+                </div>
+                {% endfor %}
+            {% endfor %}
+        </div>
+      </div>
+    </div>
+  </body>

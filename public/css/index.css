@@ -1,0 +1,102 @@
+/**
+ *  3) Responsywność strony.
+ *
+ *  Zależność styli strony od wielkości 'viewport':
+ *
+ *      Jeśli wysokość strony jest mniejsza, niż maksymalna wysokość viewport mojego ekranu; to wtedy szerokość .main_and_aside zmniejsza się
+ *  o szerokość pionowego suwaka (slidera). W przeciwnym razie pojawiłby się też suwak poziomy.
+ */
+
+@media(max-width: 335px) {
+    .main_and_aside {
+        width: 335px;
+    }
+}
+
+@media(min-width: 336px) {
+    .main_and_aside {
+        width: 100%;
+    }
+}
+
+/**
+ *  3.1) Disable text selecting
+ */
+div {
+  user-select: none; /* Standard syntax */
+  -moz-user-select: none; /* Firefox 2+ */
+  -ms-user-select: none; /* IE 10+ */
+  -webkit-user-select: none; /* Safari 3.1+ */
+}
+
+/**
+ *  4) main_and_aside
+ */
+
+.main_and_aside {
+    display: flex;
+    flex-direction: row;
+}
+
+
+/**
+ *  5) buttons_container
+ */
+
+#buttons_container {
+    background: #dce0db;
+    display: flex;
+    flex-direction: column;
+    width: 235px;
+}
+
+#logo {
+    padding: 6px 5px 2px 5px;
+}
+
+.buttons {
+    cursor: pointer;
+    height: 50px;
+    padding: 2px 5px 2px 5px;
+}
+
+#fb {
+    padding: 2px 5px 2px 5px;
+    float: right;
+}
+
+
+/**
+ *  6) text_content
+ */
+
+#text_content {
+    background: #b6ceb3;
+    float: left;
+    min-width: 315px;
+    overflow: auto;
+    width: calc(100% - 235px);
+    word-wrap: break-word;
+}
+
+/* Title heading */
+
+.border-custom-1 {
+    border: 1px solid black;
+}
+
+.border-custom-2 {
+    border: 2px solid black;
+}
+
+.border-custom-3 {
+    border: 3px solid black;
+}
+
+.mt-custom-lg {
+    margin-top: 108px !important;
+}
+
+.font-custom-b {
+    font-weight: bold;
+}

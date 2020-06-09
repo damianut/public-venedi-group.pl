@@ -1,0 +1,229 @@
+/*===================================[ CSS for { news } ]===================================*/
+
+/**
+ * 0) TITLE OF subpage:
+ */
+
+
+/**
+ *  1) CARD-HEADER (link):
+ */
+
+a.font-custom {
+    color: black;
+    font-size: 14px;
+}
+
+a.font-custom:hover {
+    cursor: pointer;
+    text-decoration-line: none;
+}
+
+.card-header-custom:hover {
+    background-color: #e8eefd;
+}
+
+#main_header.card-title {
+    max-width: 600px;
+}
+
+#sub_header.card-title {
+    max-width: 100px;
+}
+
+
+/* image_of_news */
+
+img.card-img {
+    max-height: 280px;
+    max-width: 480px;
+}
+
+/* title_of_news */
+
+div.caption {
+    width: 100%;
+
+}
+
+.background-custom-green {
+    background-color: #e4e6cabf;
+}
+
+p.font-custom-lg,
+div.font-custom-lg {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* film */
+
+div.film {
+    padding: 10px;
+}
+
+video { 
+    max-height: 280px;
+    max-width: 480px;
+    width: 100%;
+}
+
+div.film-title-container {
+    width: 100%;
+}
+
+p.film_title {
+    width: 100%;
+}
+
+/* Titles */
+
+h5.font-custom-bd {
+    font-weight: bold;
+}
+
+/**
+ *  2) MODAL IMAGES:
+ */
+
+/* Album's div */
+.album {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+}
+
+
+/* Style the image used to trigger the Modal */
+.myImg {
+    border-radius: 5px;
+    cursor: pointer;
+    max-width: 300px;
+    transition: .3s;
+    width: 100%;
+}
+
+.album img {
+    display: none;
+}
+
+.album img:first-child {
+    display: block;
+}
+
+.myImg:hover {
+    opacity: .7;
+}
+
+
+/* The Modal - background */
+.modal {
+    background-color: rgba(0,0,0,0.9);
+    display: none; /* Hidden by default */
+    height: 100%; /* Full height */
+    left: 0;
+    overflow: auto; /* Enable scroll if needed */
+    padding-top: 100px; /* Location of the box */
+    position: fixed; /* Stay in place */
+    top: 0;
+    width: 100%; /* Full width */
+    z-index: 1; /* Stay on top */
+}
+
+
+/* Modal content - image */
+.modal-content {
+    display: block;
+    margin: auto;
+    max-width: 700px;
+    width: 80%;
+}
+
+
+/* Caption of Modal Image (Image Text) - the same width as the image */
+#caption {
+    color: #ccc;
+    display: block;
+    height: 150px;
+    margin: auto;
+    max-width: 700px;
+    padding: 10px 0;
+    text-align: center;
+    width: 80%;
+}
+
+
+/* Add animation - zoom in the modal */
+.modal-content,
+#caption {
+    animation-duration: .6s;
+    animation-name: zoom;
+}
+
+
+@-webkit-keyframes zoom {
+    from {transform: scale(0);}
+    to {transform: scale(1);}
+}
+@keyframes zoom {
+    from {transform: scale(0);}
+    to {transform: scale(1);}
+}
+
+
+/* The Close Button */
+.close {
+    color: #f1f1f1;
+    font-size: 60px;
+    font-weight: bold;
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    transition: .3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
+/* Previous&next buttons */
+.prev,
+.next {
+    color: #bbb;
+    cursor: pointer;
+    font-size: 30px;
+    position: absolute;
+}
+
+
+/* 100% image width for smaller screens */
+
+@media only screen and (max-width: 700px) {
+    .modal-content {
+        width: 100%;
+    }
+}
+
+
+/* Fading animation */
+.fade {
+    animation-duration: 1.5s;
+    animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    -webkit-animation-name: fade;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}

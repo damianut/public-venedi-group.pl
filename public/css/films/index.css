@@ -1,0 +1,45 @@
+/**
+ *  0) <div> ze wszystkimi elementami podstrony dodanymi do base.html.twig
+ */
+
+
+/**
+ *  1) Opis słowny podstrony
+ */
+
+div.div_titles {
+    padding: 0 20px 60px 20px;
+}
+
+.titles {
+    border: 2px solid black;
+    margin: 7px 0 0 0;
+    padding: 5px;
+    text-align: center;   
+}
+
+/**
+ *  2) Video
+ */
+
+div.films {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+div.film {
+    padding: 10px;
+}
+
+video {
+    max-height: 280px;
+    max-width: 480px;
+    width: 100%;
+}
+
+div.film > p.film_title {
+    font-weight: bold;
+    text-align: center;
+}

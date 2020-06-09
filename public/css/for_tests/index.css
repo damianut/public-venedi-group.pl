@@ -1,0 +1,10 @@
+button.transition_test {
+    background-color: olive;
+    height: 50px;
+    transition: width 3s steps(6, end);
+    width: 250px; 
+}
+
+button.transition_test:focus{
+    width: 500px;
+}

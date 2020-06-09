@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}grupavenedi.pl{% endblock title %}
+
+{% block stylesheets %}
+    <link rel='stylesheet' href='css/films/index.css'>
+{% endblock stylesheets %}
+
+{% block text_content %}
+<!DOCTYPE html>
+<html lang="pl-PL">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div id="root">
+            <div class="m-sm-2 border-custom-2">
+                <h1 class="m-sm-1 text-center">Filmy
+                </h1>
+            </div>
+            <div class="mt-sm-5 films text-center font-custom-b" id="films_get">
+                {% for album in videosAlbums %}
+                <div class="m-auto mb-sm-5" id="{{ album.id }}">
+                    <p>{{ album.title }}</p>
+                    {% for video in album.videos %}
+                    <video controls="">
+                        <source src="{{ asset(video.dir) }}" type="video/mp4"></source>
+                    </video>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </body>
+</html>
+{% endblock text_content %}
+
+{% block javascripts %}
+{% endblock javascripts %}

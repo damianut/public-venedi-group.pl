@@ -1,0 +1,58 @@
+venedi-group.pl 
+
+This project is site for some exploration group from Zachodniopomorskie.
+To see site fulfill requirements and act in accordance to below instruction
+of installation.
+
+.1. Requirements:
+  .a. Symfony
+  .b. Composer
+  .c. MySQL server
+  .d. browser (this site was tested in Google Chrome)
+
+.2. Installation:
+  .a. Clone damianut/venedi-group.pl repo from GitHub.
+  .b. Download and install vendors in cloned repo.
+      $ cd <cloned-main-repo-dir>
+      $ composer install
+  .d. Run MySQL server if it isn't running.
+  .e. Create empty `venedi_group_pl` database in MySQL. Then create user
+      ('veneder'@'localhost' for example) with password and grant him all
+      privileges on `venedi_group_pl`.*
+  .f. Configure MySQL server version in `config/packages/doctrine.yaml`.
+  .g. Create DATABASE_URL variable in `.env.local` file according to your data
+      (mysql username and password, localhost and port) and remove
+      DATABASE_URL from `.env`
+  .h. If your data provided in above variable contains reserved character(s)
+      defined in RFC 3986 see following site: 
+      https://symfony.com/doc/current/doctrine.html#configuring-the-database
+  .i. Create tables in database by execute following commands:
+      $ bin/console make:migration
+      $ bin/console doctrine:migrations:migrate
+  .j. Create .env.local file and save there following line:
+      CLIENT_PASS=pwd
+      Where 'pwd' is password needed to upload files by '/upload' subpage.
+      Create your own password.
+
+.3. Running and testing:
+  .a. Run Symfony Local Web Server
+      $ cd <cloned-repo-dir>
+      $ sudo symfony serve // Server default listening 8000 port
+  .b. Go to `http://localhost:<your-port>/`, where '<your-port> is
+      the port that is listening by Symfony server and check, that site works.
+  .c. Try to upload news, album with photos and album with photos. Do it on
+      "/upload" and pass password from '.env.local'. Check that data was 
+      uploaded, by checking subpages of site.
+  .d. Create new account in page 'http://localhost:8000/main-page'.Then go to
+      'http://localhost/wordpress' to check, that instance of WordPress
+      works. Click on title 'Anonymous Candidate1' to check specific data of
+      created user.
+
+.4. Possible issues
+  .a. Symfony validation and PHP's configuration
+      'maxSize' constraint from VideoType and ImageType should be equal to
+      file's size limit defined in PHP's configuration.
+      Maximum number of files allowed by PHP to send in single request should be
+      indicate on upload page. In my case it amount 22.   
+
+/******************************************************************************/
