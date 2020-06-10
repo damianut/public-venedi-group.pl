@@ -14,7 +14,7 @@ class NewsUploaderType extends AbstractType
     {
         $builder
              ->add('title', Type\TextType::class, [
-                 'label' => 'Tytuł wiadomości:',
+                 'label' => 'Tytuł artykułu:',
              ])
              ->add('news_content', Type\TextType::class, [
                  'label' => 'Treść:',
